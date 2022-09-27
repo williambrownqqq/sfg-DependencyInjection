@@ -1,8 +1,8 @@
 package com.zanchenko.alexey.sfgDependencyInjetion.services;
 
 import org.springframework.stereotype.Service;
-
-@Service // so npw by annotating that as a service, Spring knows to bring an instance of this into its context
+// remove annotation to make configuration class
+//@Service // so npw by annotating that as a service, Spring knows to bring an instance of this into its context
 public class ConstructorGreetingService implements GreetingService{
     @Override
     public String sayGreeting() {

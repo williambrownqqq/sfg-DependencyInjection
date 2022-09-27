@@ -12,6 +12,9 @@ public class ConstructorInjectedController {
     public ConstructorInjectedController(@Qualifier("constructorGreetingService") GreetingService greetingService) {
         this.greetingService = greetingService;
     }
+    // Now if I take this away I delete that and I run this again you'll see that we'll get the primary bean
+    //injected into the constructor injected controller as well.
+
     public String getGreetingService() {
         return greetingService.sayGreeting();
     }

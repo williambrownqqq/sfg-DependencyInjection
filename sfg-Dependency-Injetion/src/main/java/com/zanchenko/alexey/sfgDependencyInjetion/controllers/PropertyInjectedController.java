@@ -7,7 +7,8 @@ import org.springframework.stereotype.Controller;
 
 @Controller
 public class PropertyInjectedController {
-    @Qualifier("propertyInjectedGreetingService")
+    @Qualifier("propertyInjectedGreetingService") // Now if I take this away I delete that and I run this again you'll see that we'll get the primary bean
+    //injected into the constructor injected controller as well.
     @Autowired
     public GreetingService greetingService; // Spring is going to be able to find an instance of the greeting service and
     // execute properly

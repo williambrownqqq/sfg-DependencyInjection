@@ -1,9 +1,6 @@
 package com.zanchenko.alexey.sfgDependencyInjetion;
 
-import com.zanchenko.alexey.sfgDependencyInjetion.controllers.ConstructorInjectedController;
-import com.zanchenko.alexey.sfgDependencyInjetion.controllers.MyController;
-import com.zanchenko.alexey.sfgDependencyInjetion.controllers.PropertyInjectedController;
-import com.zanchenko.alexey.sfgDependencyInjetion.controllers.SetterInjectedController;
+import com.zanchenko.alexey.sfgDependencyInjetion.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -14,15 +11,23 @@ public class SfgDependencyInjetionApplication {
 	public static void main(String[] args) {
 		ApplicationContext ctx = SpringApplication.run(SfgDependencyInjetionApplication.class, args);
 		MyController myController = (MyController) ctx.getBean("myController");
+
+		I18nController i18nController = (I18nController) ctx.getBean("i18nController");
+		System.out.println(i18nController.sayHello());
+
 		//So now I'm getting a handle on the Spring application context and I can actually ask that context
 		//for an instance of my controller so say my controller equals and I need to do a cast here because it
 		//just returns back an object type.
-		String greeting = myController.sayHello();
+
+		//String greeting = myController.sayHello();
+		//System.out.println(greeting);
+		System.out.println("----------- PrimaryBean -------------");
+		System.out.println(myController.sayHello());
 		//Context because when the starts up Spring is going to go through, scan for beans.
 		//Things have been annotated as beans and create those into the context.
 		//So what's gonna happen here is I'm asking the context for the controller. I am getting the return value
 		//and the greeting.
-		System.out.println(greeting);
+
 
 		//Now one thing I do want to point out here is notice that I never asked never created that controller
 		//object.
